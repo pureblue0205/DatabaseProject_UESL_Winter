@@ -1,0 +1,318 @@
+﻿
+@model WebApplication_UESL.Models.Student
+
+@{
+    ViewBag.Title = "details";
+    
+}
+
+
+
+<h2>Student Details</h2>
+
+   
+    
+    <div class="form-horizontal">
+
+        <div class="row">
+            <h1 class="col-md-offset-2">Details</h1>
+        </div>
+        <hr />
+        
+
+
+        <div class="form-group">
+            @Html.Label("Student ID", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.StudentID, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("First Name", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Last Name", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 class="col-md-offset-2">BIO</h2>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.gender, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.gender, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.DOB, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Citezenship, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Citezenship, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Telephone, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Telephone, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Email, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Email, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("CWU Email", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.CWU_Email, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("CWU housing (y/n)", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.CWU_Housing, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("CWU Address", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.CWU_Address, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Home Address", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Home_Address, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 class="col-md-offset-2">Emergency Contact</h2>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Emergency Contact", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Emergency_Contact, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Emergency Contact Relationship", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Emergency_Contact_Relationship, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Emergency Contact Phone", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Emergency_Contact_Phone, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Emergency Contact Email", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Emergency_Contact_Email, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 class="col-md-offset-2">Admissions</h2>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Transfer?", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Transfer_, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="form-group">
+            @Html.Label("Conditional Admission?", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Conditional_Admission, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Status?", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Status, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Letter Grade", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.LetterGrade, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Placement", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Placement, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Placement Quarter", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.QuarterOfPlacement, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Catalog Number", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.CourseCatalogNumber, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 class="col-md-offset-2">Other</h2>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.SEVIS, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.SEVIS, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("I 20 Expiration", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.I_20_Expiration, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            @Html.Label("School Agent", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.School_Agent, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Agent Email", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Agent_Email, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.Label("Mission Student ID", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Mission_Student_ID, new { htmlAttributes = new { @class = "form-control" } })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Mission ID Expiration", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Mission_ID_Expiration, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Comments, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(Model => Model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UniqueRecordID }) |
+    @Html.ActionLink("Back to List", "Index") <br />
+
+   @* @Html.ActionLink("Add New Course", "addEnrollment", new { StudentID = Model.StudentID, uid = Model.UniqueRecordID }) *@
+   
+    
+</p>
+
+<h2>Enrolled Courses</h2>
+<p>
+    <button onclick="location.href='@Url.Action("addEnrollment", "Students", new { StudentID = Model.StudentID, uid = Model.UniqueRecordID })';return false;">Add a new Course</button>
+</p>
+@*Renders the partial view that shows currently enrolled classes for this student*@
+@{Html.RenderAction("enrolledCourses", "Students");}
+
+
+
+  
