@@ -1,0 +1,155 @@
+﻿@model IEnumerable<WebApplication_UESL.Models.Student>
+
+@{
+    ViewBag.Title = "addEnrollment";
+    var grid = new WebGrid(source: Model, rowsPerPage: 1000);
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+                    $(document).ready(function () {
+
+                        // 1st replace first column header text with checkbox
+
+                        $("#checkableGrid th").each(function () {
+                            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
+                                $(this).text('');
+                                $("<input/>", { type: "checkbox", id: "cbSelectAll", value: "" }).appendTo($(this));
+                                $(this).append("<span>Select All</span>");
+                            }
+                        });
+
+                        //2nd click event for header checkbox for select /deselect all
+                        $("#cbSelectAll").click(function () {
+                            var ischecked = this.checked;
+                            $('#checkableGrid').find("input:checkbox").each(function () {
+                                this.checked = ischecked;
+                            });
+                        });
+
+
+                        //3rd click event for checkbox of each row
+                        $("input[name='ids']").click(function () {
+                            var totalRows = $("#checkableGrid td :checkbox").length;
+                            var checked = $("#checkableGrid td :checkbox:checked").length;
+
+                            if (checked == totalRows) {
+                                $("#checkableGrid").find("input:checkbox").each(function () {
+                                    this.checked = true;
+                                });
+                            }
+                            else {
+                                $("#cbSelectAll").removeAttr("checked");
+                            }
+                        });
+
+                    });
+</script>
+
+@* css *@
+<style type="text/css">
+    table.gridtable {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #666666;
+        border-collapse: collapse;
+    }
+
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+</style>
+
+@using (Html.BeginForm(Model))
+{
+    <p>
+        <h2>Search</h2>
+        <div class="row" style="padding:6px">
+            <div class="col-md-2" style="text-align:right">
+                First Name:
+            </div>
+            <div class="col-md-2">
+                @Html.TextBox("firstName")
+            </div>
+            <div class="col-md-2" style="text-align:right">
+                Last Name:
+            </div>
+            <div class="col-md-2">
+                @Html.TextBox("lastName")
+            </div>
+        </div>
+        <div class="row" style="padding:6px">
+            <div class="col-md-2" style="text-align:right">
+                Student ID:
+            </div>
+            <div class="col-md-2">
+                @Html.TextBox("sID")
+            </div>
+            <div class="col-md-2" style="text-align:right">
+                Citezenship:
+            </div>
+            <div class="col-md-2">
+                @Html.TextBox("Citezenship")
+            </div>
+        </div>
+        <div class="row" style="padding:6px">
+            <div class="col-md-2" style="text-align:right">
+                School/Agent:
+            </div>
+            <div class="col-md-2">
+                @Html.TextBox("agent")
+            </div>
+                       
+        </div>
+
+        @Html.Hidden("classRecID", ViewData["classRecID"])
+        
+
+        <input type="submit" value="Filter" />
+    </p>
+    <p>This section is only for ADDING students to courses! If you need to remove students from a course, go back to the course details page and use the delete button.</p>
+}
+@using (Html.BeginForm("registerSelected", "Courses"))
+
+
+{
+    @Html.Hidden("classRecID", ViewData["classRecID"])
+
+
+    @grid.GetHtml(
+                tableStyle: "gridtable",
+                 htmlAttributes: new { id = "checkableGrid" },
+                columns:
+                    grid.Columns(
+
+                       @*Add Checkbox*@
+                        grid.Column(format:@<text><input type="checkbox" name="ids" value="@item.UniqueRecordID" /></text>, header: "{checkall}"),                        
+                        grid.Column("StudentID", "Student ID"),
+                        grid.Column("FirstName", "First Name"),
+                        grid.Column("LastName", "Last Name"),
+                        grid.Column("Citezenship", "Citezenship"),
+                        grid.Column("School_Agent", "School / Agent")
+                       
+
+
+
+
+                    )
+                )
+
+    <input type="submit" value="Enroll selected students in this course" />
+}

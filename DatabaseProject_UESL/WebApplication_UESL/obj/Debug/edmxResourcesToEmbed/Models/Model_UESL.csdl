@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseProject_UESLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="ClassRecordID" />
+    </Key>
+    <Property Name="ClassRecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CatalogNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Instructor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Enrollments" Relationship="Self.FK_dbo_Enrollment_dbo_Course_CourseID" FromRole="Course" ToRole="Enrollment" />
+    <Property Name="course_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="classID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeetTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="quarter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_dbo_Enrollment_dbo_Course_CourseID" FromRole="Enrollment" ToRole="Course" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_dbo_Enrollment_dbo_Student_StudentID" FromRole="Enrollment" ToRole="Student" />
+    <Property Name="grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="UniqueRecordID" />
+    </Key>
+    <Property Name="UniqueRecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LetterGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Placement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QuarterOfPlacement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CourseCatalogNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Enrollments" Relationship="Self.FK_dbo_Enrollment_dbo_Student_StudentID" FromRole="Student" ToRole="Enrollment" />
+    <Property Name="SEVIS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="I_20_Expiration" Type="DateTime" Precision="0" />
+    <Property Name="gender" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Citezenship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="School_Agent" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Agent_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Transfer_" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CWU_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CWU_Housing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CWU_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Home_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Emergency_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emergency_Contact_Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emergency_Contact_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emergency_Contact_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Conditional_Admission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mission_Student_ID" Type="Int32" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mission_ID_Expiration" Type="DateTime" Precision="0" />
+    <Property Name="ImageContent" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ImageMimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Enrollment_dbo_Course_CourseID">
+    <End Role="Course" Type="Self.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="ClassRecordID" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enrollment_dbo_Student_StudentID">
+    <End Role="Student" Type="Self.Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="UniqueRecordID" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseProject_UESLEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="Self.Course" />
+    <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <AssociationSet Name="FK_dbo_Enrollment_dbo_Course_CourseID" Association="Self.FK_dbo_Enrollment_dbo_Course_CourseID">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enrollment_dbo_Student_StudentID" Association="Self.FK_dbo_Enrollment_dbo_Student_StudentID">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <EntitySet Name="C__RefactorLog" EntityType="DatabaseProject_UESLModel.C__RefactorLog" />
+    <EntitySet Name="courseExportKeys" EntityType="DatabaseProject_UESLModel.courseExportKey" />
+    <EntitySet Name="enrollmentExportKeys" EntityType="DatabaseProject_UESLModel.enrollmentExportKey" />
+    <EntitySet Name="studentExportKeys" EntityType="DatabaseProject_UESLModel.studentExportKey" />
+  </EntityContainer>
+  <EntityType Name="C__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="courseExportKey">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="courseKey" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="enrollmentExportKey">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="enrollmentKey" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="studentExportKey">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="studentKey" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

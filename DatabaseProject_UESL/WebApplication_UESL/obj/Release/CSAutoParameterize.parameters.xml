@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebApplication_UESL-20151201122553.mdf;Initial Catalog=aspnet-WebApplication_UESL-20151201122553;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Jake\\Desktop\\school\ stuff\\DatabaseProject_UESL-master\\DatabaseProject_UESL-master\\DatabaseProject_UESL\\WebApplication_UESL\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="DatabaseProject_UESLEntities-Web.config Connection String" description="DatabaseProject_UESLEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model_UESL.csdl|res://*/Models.Model_UESL.ssdl|res://*/Models.Model_UESL.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\DatabaseProject_UESL.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Jake\\Desktop\\school\ stuff\\DatabaseProject_UESL-master\\DatabaseProject_UESL-master\\DatabaseProject_UESL\\WebApplication_UESL\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DatabaseProject_UESLEntities']/@connectionString" />
+  </parameter>
+</parameters>

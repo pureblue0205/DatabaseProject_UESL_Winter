@@ -1,0 +1,80 @@
+﻿<script>
+                    $(document).ready(function () {
+
+                        // 1st replace first column header text with checkbox
+
+                        $("#checkableGrid2 th").each(function () {
+                            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
+                                $(this).text('');
+                                $("<input/>", { type: "checkbox", id: "cbSelectAll2", value: "" }).appendTo($(this));
+                                $(this).append("<span>Select All</span>");
+                            }
+                        });
+
+                        //2nd click event for header checkbox for select /deselect all
+                        $("#cbSelectAll2").click(function () {
+                            var ischecked = this.checked;
+                            $('#checkableGrid2').find("input:checkbox").each(function () {
+                                this.checked = ischecked;
+                            });
+                        });
+
+
+                        //3rd click event for checkbox of each row
+                        $("input[name='ids']").click(function () {
+                            var totalRows = $("#checkableGrid2 td :checkbox").length;
+                            var checked = $("#checkableGrid2 td :checkbox:checked").length;
+
+                            if (checked == totalRows) {
+                                $("#checkableGrid2").find("input:checkbox").each(function () {
+                                    this.checked = true;
+                                });
+                            }
+                            else {
+                                $("#cbSelectAll2").removeAttr("checked");
+                            }
+                        });
+
+                    });
+</script>
+
+
+<div class="modal-body">
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+        @model IEnumerable<WebApplication_UESL.Models.Student>
+
+        @{
+            ViewBag.Title = "studentExport";
+            WebGrid grid = new WebGrid(source: Model, rowsPerPage: 1000);
+        }
+
+        @using (Html.BeginForm("export","Students"))
+        {
+            @grid.GetHtml(
+                tableStyle: "gridtable",
+                htmlAttributes: new { id = "checkableGrid2" },
+                
+                columns:
+                    grid.Columns(
+
+                        @*Add Checkbox*@
+                        grid.Column(format:@<text><input type="checkbox" name="ids2" value="@item.UniqueRecordID" /></text>, header: "{checkall}", canSort:false),
+                        grid.Column(format: (item) => Html.ActionLink("Edit", "edit", new { id = item.UniqueRecordID }), style: "column-action", canSort: false),
+                        grid.Column(format: (item) => Html.ActionLink("Details", "details", new { id = item.UniqueRecordID }), style: "column-action", canSort: false),
+                        grid.Column("StudentID", "Student ID", canSort: false),
+                        grid.Column("FirstName", "First Name", canSort: false),
+                        grid.Column("LastName", "Last Name", canSort: false),
+                        grid.Column("Citezenship", "Citezenship", canSort: false),
+                        grid.Column("School_Agent", "School / Agent", canSort: false),
+                        grid.Column("I_20_Expiration", "I 20 Expiration", format: item => ((item.I_20_Expiration == null) ? "" : item.I_20_Expiration.ToString("MM/dd/yyyy")), canSort: false)
+
+                    )
+                )
+
+            <button type="submit" value="remove" name="submitButton" onclick="return confirm('Are you SURE you want to remove these from the export bag?')">Remove From Export Bag</button>
+            <button type="submit" value="exp" name="submitButton">Export To Excel</button>
+        }
+        </div>
+    </div>
