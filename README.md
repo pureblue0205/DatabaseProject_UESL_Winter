@@ -4,8 +4,6 @@ PROJECT OVERVIEW
 
 --> Elizabeth Brooks, Minji Chysay-Park, , Ben Garza, Jacob Kostenick
 
---> Central Washington University
-
 --------------------------------------------------------------------------------------------------------------------------------------
 
 SUMMARY 
