@@ -1,4 +1,7 @@
-Project Overview
+PROJECT OVERVIEW
+
+-> Team Fantastic 4+1
+--> Elizabeth Brooks, Minji Chysay-Park, Jacob Kostenick, Ben Garza
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
