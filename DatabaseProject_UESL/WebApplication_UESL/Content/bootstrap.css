@@ -72,8 +72,38 @@ a:hover {
 }
 
 h1 {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: white;
   margin: 0.67em 0;
   font-size: 2em;
+}
+
+p {
+    text-indent: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#usageGuide {
+  background-image: url(images/fut.png);
+  min-width: 496px;
+  min-height: 315px;
+}
+
+#about {
+  background-image: url(images/greenAnimalVectors.jpg);
+  min-width: 605px;
+  min-height: 496px;
+}
+
+#students{
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  background-color: rgba(000, 0, 0, 0.75);
 }
 
 abbr[title] {
@@ -4934,13 +4964,11 @@ a.list-group-item.active > .badge,
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
-  color: inherit;
-  background-color: #eeeeee;
+  background-color: rgba(000, 0, 0, 0.75);
 }
 
 .jumbotron h1 {
   line-height: 1;
-  color: inherit;
 }
 
 .jumbotron p {

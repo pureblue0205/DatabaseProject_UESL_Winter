@@ -112,7 +112,7 @@
 
 <p>
    @*@ @Html.ActionLink("Create New", "Create") *@
-    <button onclick="location.href='@Url.Action("Create", "Students")';return false;">Add a new student</button>
+    <button onclick="location.href='@Url.Action("Create", "Students")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Student</button>
 </p>
 
 @using (Html.BeginForm(Model))
@@ -188,8 +188,8 @@
                     )
                 )
 
-    <button type="submit" value="del" name="submitButton" onclick="return confirm('Are you SURE you want to delete these students?')" >Delete Selected</button>
-    <button type="submit" value="ex" name="submitButton"  onclick="return confirm('Confirm mark for export?')">Mark Selected For Export</button>
+    <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK student(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
+    <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of student(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
 }
  
 

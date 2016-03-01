@@ -106,7 +106,7 @@
 
 <p>
     @*@ @Html.ActionLink("Create New", "Create") *@
-    <button onclick="location.href='@Url.Action("Create", "Courses")';return false;">Add a new course</button>
+    <button onclick="location.href='@Url.Action("Create", "Courses")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Course</button>
 </p>
 </p>
 
@@ -122,10 +122,10 @@
                 @Html.TextBox("ClassName")
             </div>
             <div class="col-md-2" style="text-align:right">
-                classID:
+                Class ID:
             </div>
             <div class="col-md-2">
-                @Html.TextBox("classID")
+                @Html.TextBox("Class ID")
             </div>
         </div>    
         
@@ -174,8 +174,8 @@
                     )
                 )
 
-    <button type="submit"  value="del" name="submitButton" onclick="return confirm('Are you SURE you want to delete these courses?')" >Delete Selected</button>
-    <button type="submit" value="ex" name="submitButton"  onclick="return confirm('Confirm mark for export?')">Mark Selected For Export</button>
+    <button type="submit" value="ex" name="submitButton"  onclick="return confirm('Confirm MARK course(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png" > Mark Selected for Export</button>
+    <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of course(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
 }
 @Html.ActionLink("Show Export Bag", "coursesExport", "Courses",
 null, new { @class = "modal-link btn btn-success" })

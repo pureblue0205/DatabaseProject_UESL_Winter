@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="UESL" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\brookse\\Desktop\\GitHub\\DatabaseProject_UESL_Winter\\DatabaseProject_UESL\\WebApplication_UESL\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\brookse\\Desktop\\GitHub\\DatabaseProject_UESL_Winter\\DatabaseProject_UESL\\WebApplication_UESL\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="UESL/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\brookse\\Desktop\\GitHub\\DatabaseProject_UESL_Winter\\DatabaseProject_UESL\\WebApplication_UESL\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="DatabaseProject_UESLEntities-Web.config Connection String" description="" value="metadata=res://*/Models.Model_UESL.csdl|res://*/Models.Model_UESL.ssdl|res://*/Models.Model_UESL.msl;provider=System.Data.SqlClient;provider connection string='Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\Jake\Desktop\school stuff\DatabaseProject_UESL-master\DatabaseProject_UESL-master\DatabaseProject_UESL\WebApplication_UESL\App_Data\DatabaseProject_UESL.mdf&quot;;Integrated Security=True;Connect Timeout=30'" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\brookse\\Desktop\\GitHub\\DatabaseProject_UESL_Winter\\DatabaseProject_UESL\\WebApplication_UESL\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DatabaseProject_UESLEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebApplication_UESL-20151201122553.mdf;Initial Catalog=aspnet-WebApplication_UESL-20151201122553;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\brookse\\Desktop\\GitHub\\DatabaseProject_UESL_Winter\\DatabaseProject_UESL\\WebApplication_UESL\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>
