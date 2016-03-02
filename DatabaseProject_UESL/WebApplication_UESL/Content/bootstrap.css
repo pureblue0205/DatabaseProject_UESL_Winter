@@ -58,7 +58,7 @@ html {
 }
 
 body {
-  background-image: url(images/basicSoftWorld.jpg);
+  background-image: url(images/trees.jpg);
   margin: 0;
 }
 
@@ -72,9 +72,23 @@ a:hover {
 }
 
 h1 {
-  background-color: rgba(255, 0, 0, 0.75);
+  background-color: rgba(248, 9, 9, 0.50);
   color: white;
-  margin: 0.67em 0;
+  font-size: 2em;
+}
+
+h0 {
+  background-color: rgba(0, 0, 0, 0.15);
+  color: white;
+  font-size: 4em;
+  text-indent: 25px;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+h3 {
+  color: black;
   font-size: 2em;
 }
 
@@ -84,6 +98,7 @@ p {
     padding-right: 15px;
     padding-left: 15px;
 }
+
 
 #usageGuide {
   background-image: url(images/fut.png);
@@ -4964,7 +4979,7 @@ a.list-group-item.active > .badge,
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
-  background-color: rgba(000, 0, 0, 0.75);
+  background-color: rgba(000, 0, 0, 0.15);
 }
 
 .jumbotron h1 {
