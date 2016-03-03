@@ -58,7 +58,7 @@ html {
 }
 
 body {
-  background-image: url(images/trees.jpg);
+  background-image: url(images/trees.png);
   margin: 0;
 }
 
@@ -109,7 +109,7 @@ h4 {
 }
 
 h0 {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.25);
   color: white;
   font-size: 4em;
   text-indent: 25px;
