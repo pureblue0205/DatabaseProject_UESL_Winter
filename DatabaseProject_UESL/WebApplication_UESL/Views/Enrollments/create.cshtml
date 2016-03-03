@@ -4,7 +4,7 @@
     ViewBag.Title = "create";
 }
 
-<h2>create</h2>
+<h0>Create Enrollment Record</h0>
 
 
 @using (Html.BeginForm()) 
@@ -52,6 +52,17 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<hr />
+<footer>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Students", "index", "Students")</li>
+            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+        </ul>
+    </div>
+</footer>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

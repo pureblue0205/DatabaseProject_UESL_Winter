@@ -4,8 +4,7 @@
     ViewBag.Title = "edit";
 }
 
-
-
+<h0>Edit Student Info</h0>
 
 @using (Html.BeginForm("Edit", "Students", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -13,13 +12,10 @@
 
                 <div class="form-horizontal">
        
-        <div class="row">
-            <h1 class="col-md-offset-2">Edit Student Info</h1>
-        </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.UniqueRecordID)
-
+        
         <div class="form-group">
             <div class="col-md-3">
                 <input type="file" id="image" name="image" class="form-control" />
@@ -53,7 +49,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">BIO</h2>
+            <h4 class="col-md-offset-2">Biographical Info</h4>
         </div>
 
         <div class="form-group">
@@ -129,7 +125,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">Emergency Contact</h2>
+            <h4 class="col-md-offset-2">Emergency Contact</h4>
         </div>
 
         <div class="form-group">
@@ -165,7 +161,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">Admissions</h2>
+            <h4 class="col-md-offset-2">Admissions</h4>
         </div>
 
         <div class="form-group">
@@ -231,7 +227,7 @@
     </div>
                     *@
         <div class="row">
-            <h2 class="col-md-offset-2">Other</h2>
+            <h4 class="col-md-offset-2">Other</h4>
         </div>
 
         <div class="form-group">
@@ -307,6 +303,17 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<hr />
+<footer>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Students", "index", "Students")</li>
+            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+        </ul>
+    </div>
+</footer>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -8,7 +8,7 @@
 
 
 
-<h2>Student Details</h2>
+<h0>Student Details</h0>
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.UniqueRecordID }) |
@@ -23,9 +23,6 @@
     
     <div class="form-horizontal">
 
-        <div class="row">
-            <h1 class="col-md-offset-2">Details</h1>
-        </div>
         <hr />
 
         <div class="form-group" style="display: inline-block;background-color:ButtonFace">
@@ -64,7 +61,7 @@
          
 
         <div class="row">
-            <h2 class="col-md-offset-2">BIO</h2>
+            <h4 class="col-md-offset-2">Biographical Info</h4>
         </div>
 
         <div class="form-group">
@@ -140,7 +137,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">Emergency Contact</h2>
+            <h4 class="col-md-offset-2">Emergency Contact</h4>
         </div>
 
         <div class="form-group">
@@ -176,7 +173,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">Admissions</h2>
+            <h4 class="col-md-offset-2">Admissions</h4>
         </div>
 
         <div class="form-group">
@@ -242,7 +239,7 @@
     </div>
 *@
         <div class="row">
-            <h2 class="col-md-offset-2">Other</h2>
+            <h4 class="col-md-offset-2">Other</h4>
         </div>
 
         <div class="form-group">
@@ -314,20 +311,12 @@
         </div>
     </div>
 
-
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UniqueRecordID }) |
-    @Html.ActionLink("Back to List", "Index") <br />
-
-   @* @Html.ActionLink("Add New Course", "addEnrollment", new { StudentID = Model.StudentID, uid = Model.UniqueRecordID }) *@
-   
-    
-</p>
-
-<center><h2>Enrolled Courses for this student</h2></center>
+<center><h1>Enrolled Courses for this Student</h1></center>
 <p>
     <button onclick="location.href='@Url.Action("addEnrollment", "Students", new { StudentID = Model.StudentID, uid = Model.UniqueRecordID })';return false;">Enroll in a new Course</button>
 </p>
+
+
 @*Renders the partial view that shows currently enrolled classes for this student*@
 @{Html.RenderAction("enrolledCourses", "Students");}
 

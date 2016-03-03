@@ -6,6 +6,10 @@
 }
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <script>
     $(document).ready(function () {
 
@@ -45,6 +49,7 @@
 
     });
 </script>
+
 <script>
     $(function () {
 
@@ -80,6 +85,7 @@
         border-width: 1px;
         border-color: #666666;
         border-collapse: collapse;
+        margin: 0px auto;
     }
 
         table.gridtable th {
@@ -105,8 +111,9 @@
 
 @using (Html.BeginForm(Model))
 {
+    <hr />
+    <hs>Search Enrollments</hs>
     <p>
-        <h3>Search</h3>
         <center>
             <div class="row" style="padding:6px">
                 <div class="col-md-2" style="text-align:right">
@@ -167,12 +174,8 @@
         </center>
         <input type="submit" value="Filter" />
     </p>
+    <hr />
 }
-
-<p>
-    @* @Html.ActionLink("Create New", "Create")*@
-</p>
-
 
 @using (Html.BeginForm("DeleteSelected", "Enrollments"))
 {
@@ -185,7 +188,6 @@
                         @*Add Checkbox*@
                         grid.Column(format:@<text><input type="checkbox" name="ids" value="@item.EnrollmentID" /></text>, header: "{checkall}"),
                         grid.Column(format: (item) => Html.ActionLink("Edit/View", "edit", new { id = item.EnrollmentID }), style: "column-action"),
-
                         grid.Column("Student.FirstName", "First Name"),
                         grid.Column("Student.LastName", "Last Name"),
                         grid.Column("Student.StudentID", "Student ID"),
@@ -198,23 +200,31 @@
                         grid.Column("Course.Location", "Location"),
                         grid.Column("Course.Instructor", "Instructor")
 
-
-
-
-
-
                     )
                 )
 
-    <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK record(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
-    <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of record(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
+    <ef>
+        <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK record(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
+        <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of record(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
+    </ef>
 }
 
-@Html.ActionLink("Show Export Bag", "enrollmentsExport", "Enrollments",
-null, new { @class = "modal-link btn btn-success" })
+<ef>
+    @Html.ActionLink("Show Export Bag", "enrollmentsExport", "Enrollments",
+    null, new { @class = "modal-link btn btn-success" })
+</ef>
 
 <div id="modal-container" class="modal fade"
      tabindex="-1" role="dialog">
 
 </div>
-
+<hr />
+<footer>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Students", "index", "Students")</li>
+            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+        </ul>
+    </div>
+</footer>

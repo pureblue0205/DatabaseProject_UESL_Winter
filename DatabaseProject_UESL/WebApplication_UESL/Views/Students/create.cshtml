@@ -4,7 +4,7 @@
     ViewBag.Title = "create";
 }
 
-<h2>create</h2>
+<h0>Create Student Record</h0>
 
 
 @using (Html.BeginForm("Create", "Students",FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Student</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
@@ -46,7 +45,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">BIO</h2>
+            <h4 class="col-md-offset-2">Biographical Info</h4>
         </div>
 
         <div class="form-group">
@@ -122,7 +121,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">Emergency Contact</h2>
+            <h4 class="col-md-offset-2">Emergency Contact</h4>
         </div>
 
         <div class="form-group">
@@ -158,7 +157,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">Admissions</h2>
+            <h4 class="col-md-offset-2">Admissions</h4>
         </div>
 
         <div class="form-group">
@@ -224,7 +223,7 @@
         </div>
 
         <div class="row">
-            <h2 class="col-md-offset-2">Other</h2>
+            <h4 class="col-md-offset-2">Other</h4>
         </div>
 
         <div class="form-group">
@@ -300,6 +299,17 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<hr />
+<footer>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Students", "index", "Students")</li>
+            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+        </ul>
+    </div>
+</footer>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

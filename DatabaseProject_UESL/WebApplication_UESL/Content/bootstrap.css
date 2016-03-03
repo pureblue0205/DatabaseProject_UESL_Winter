@@ -71,10 +71,41 @@ a:hover {
   outline: 0;
 }
 
+as{
+    margin: 25%;
+}
+
+ac{
+    margin: 43.5%;
+}
+
+sf{
+    margin: 15%;
+}
+
+cf{
+    margin: 5.9%;
+}
+
+ef{
+    margin: 1.65%;
+}
+
 h1 {
   background-color: rgba(248, 9, 9, 0.50);
   color: white;
   font-size: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+h4 {
+  background-color: rgba(9, 113, 58, 0.40);
+  color: white;
+  font-size: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
 h0 {
@@ -82,14 +113,20 @@ h0 {
   color: white;
   font-size: 4em;
   text-indent: 25px;
-  padding-top: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-h3 {
-  color: black;
+hs {
+  background-color: rgba(9, 113, 58, 0.40);
+  color: white;
   font-size: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 p {
@@ -97,6 +134,14 @@ p {
     padding-top: 15px;
     padding-right: 15px;
     padding-left: 15px;
+}
+
+p0{
+    text-indent: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    color: white;
 }
 
 
@@ -548,14 +593,12 @@ h3 {
   margin-bottom: 10px;
 }
 
-h4,
 h5,
 h6 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-h1,
 .h1 {
   font-size: 36px;
 }
@@ -570,7 +613,6 @@ h3,
   font-size: 24px;
 }
 
-h4,
 .h4 {
   font-size: 18px;
 }

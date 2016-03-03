@@ -1,54 +1,55 @@
-﻿
-
-@model IEnumerable<WebApplication_UESL.Models.Student>
+﻿@model IEnumerable<WebApplication_UESL.Models.Student>
 
 @{
     ViewBag.Title = "index";
     var grid = new WebGrid(source: Model, rowsPerPage: 1000);
 }
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <script>
-                    $(document).ready(function () {
+    $(document).ready(function () {
 
-                        // 1st replace first column header text with checkbox
+        // 1st replace first column header text with checkbox
 
-                        $("#checkableGrid th").each(function () {
-                            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
-                                $(this).text('');
-                                $("<input/>", { type: "checkbox", id: "cbSelectAll", value: "" }).appendTo($(this));
-                                $(this).append("<span>Select All</span>");
-                            }
-                        });
+        $("#checkableGrid th").each(function () {
+            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
+                $(this).text('');
+                $("<input/>", { type: "checkbox", id: "cbSelectAll", value: "" }).appendTo($(this));
+                $(this).append("<span>Select All</span>");
+            }
+        });
 
-                        //2nd click event for header checkbox for select /deselect all
-                        $("#cbSelectAll").click(function () {
-                            var ischecked = this.checked;
-                            $('#checkableGrid').find("input:checkbox").each(function () {
-                                this.checked = ischecked;
-                            });
-                        });
+        //2nd click event for header checkbox for select /deselect all
+        $("#cbSelectAll").click(function () {
+            var ischecked = this.checked;
+            $('#checkableGrid').find("input:checkbox").each(function () {
+                this.checked = ischecked;
+            });
+        });
 
 
-                        //3rd click event for checkbox of each row
-                        $("input[name='ids']").click(function () {
-                            var totalRows = $("#checkableGrid td :checkbox").length;
-                            var checked = $("#checkableGrid td :checkbox:checked").length;
+        //3rd click event for checkbox of each row
+        $("input[name='ids']").click(function () {
+            var totalRows = $("#checkableGrid td :checkbox").length;
+            var checked = $("#checkableGrid td :checkbox:checked").length;
 
-                            if (checked == totalRows) {
-                                $("#checkableGrid").find("input:checkbox").each(function () {
-                                    this.checked = true;
-                                });
-                            }
-                            else {
-                                $("#cbSelectAll").removeAttr("checked");
-                            }
-                        });
+            if (checked == totalRows) {
+                $("#checkableGrid").find("input:checkbox").each(function () {
+                    this.checked = true;
+                });
+            }
+            else {
+                $("#cbSelectAll").removeAttr("checked");
+            }
+        });
 
-                    });
+    });
 </script>
+
 <script>
     $(function () {
         
@@ -74,9 +75,6 @@
     });
 </script>
 
-
-
-
 @* css *@
 <style type="text/css">
     table.gridtable {
@@ -87,6 +85,7 @@
         border-width: 1px;
         border-color: #666666;
         border-collapse: collapse;
+        margin: 0px auto;
     }
 
         table.gridtable th {
@@ -106,24 +105,15 @@
         }
 </style>
 
-
-
-
 <center>
     <h0>List of Students</h0>
 </center>
 
-<p>
-   @*@ @Html.ActionLink("Create New", "Create") *@
-    <center>
-        <button onclick="location.href='@Url.Action("Create", "Students")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Student</button>
-    </center>
-</p>
-
 @using (Html.BeginForm(Model))
 {
+    <hr />
+    <hs>Search Students</hs>
     <p>
-        <h3>Search</h3>
         <center>
             <div class="row" style="padding:6px">
                 <div class="col-md-2" style="text-align:right">
@@ -137,6 +127,12 @@
                 </div>
                 <div class="col-md-2">
                     @Html.TextBox("lastName")
+                </div>
+                <div class="col-md-2" style="text-align:right">
+                    School/Agent:
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBox("agent")
                 </div>
             </div>
             <div class="row" style="padding:6px">
@@ -152,16 +148,8 @@
                 <div class="col-md-2">
                     @Html.TextBox("Citezenship")
                 </div>
-            </div>
-            <div class="row" style="padding:6px">
                 <div class="col-md-2" style="text-align:right">
-                    School/Agent:
-                </div>
-                <div class="col-md-2">
-                    @Html.TextBox("agent")
-                </div>
-                <div class="col-md-2" style="text-align:right">
-                    I 20 Expiration:
+                     Eligibility Certificate Exp:
                 </div>
                 <div class="col-md-2">
                     @Html.TextBox("I20exp", null, new { @type = "month" })
@@ -170,6 +158,7 @@
         </center>
         <input type="submit" value="Filter" />
     </p>
+    <hr />
 }
 
 @using (Html.BeginForm("DeleteSelected", "Students"))
@@ -194,14 +183,32 @@
                     )
                 )
 
-    <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK student(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
-    <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of student(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
+    <sf>
+        <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK student(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
+        <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of student(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
+        <as>
+            <button onclick="location.href='@Url.Action("Create", "Students")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Student</button>
+        </as>
+    </sf>
 }
- 
-@Html.ActionLink("Show Export Bag", "studentExport", "students",
-null, new { @class = "modal-link btn btn-success" })
+
+<sf>
+    @Html.ActionLink("Show Export Bag", "studentExport", "students",
+    null, new { @class = "modal-link btn btn-success" })
+</sf> 
 
 <div id="modal-container" class="modal fade"
      tabindex="-1" role="dialog">
     
 </div>
+
+<hr />
+<footer>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Students", "index", "Students")</li>
+            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+        </ul>
+    </div>
+</footer>
