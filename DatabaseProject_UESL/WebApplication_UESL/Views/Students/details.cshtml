@@ -311,15 +311,18 @@
         </div>
     </div>
 
-<center><h1>Enrolled Courses for this Student</h1></center>
+<center>
+    <h1>Enrolled Courses for this Student</h1>
+</center>
+
 <p>
-    <button onclick="location.href='@Url.Action("addEnrollment", "Students", new { StudentID = Model.StudentID, uid = Model.UniqueRecordID })';return false;">Enroll in a new Course</button>
+    <cf>
+        <button onclick="location.href='@Url.Action("addEnrollment", "Students", new { StudentID = Model.StudentID, uid = Model.UniqueRecordID })';return false;">Enroll in Course</button>
+    </cf>
 </p>
 
 
 @*Renders the partial view that shows currently enrolled classes for this student*@
-@{Html.RenderAction("enrolledCourses", "Students");}
-
-
+<center>@{Html.RenderAction("enrolledCourses", "Students");}</center>
 
   

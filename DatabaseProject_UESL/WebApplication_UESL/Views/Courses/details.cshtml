@@ -76,8 +76,10 @@
 
 <center><h1>Enrolled Students for this Course</h1></center>
 <p>
-  <button onclick="location.href='@Url.Action("addEnrollment", "Courses", new { uid = Model.ClassRecordID })';return false;">Add a new student</button>   
+    <as>
+        <button onclick="location.href='@Url.Action("addEnrollment", "Courses", new { uid = Model.ClassRecordID })';return false;">Enroll a Student</button>   
+    </as>
 </p>
 
 @*Renders the partial view that shows currently enrolled classes for this student*@
-@{Html.RenderAction("enrolledStudents", "Courses");}
+<center>@{Html.RenderAction("enrolledStudents", "Courses");}</center>
