@@ -13,7 +13,7 @@
 
 <div>
     
-    <hr />
+    <div class="jumbotron2">
    
     <div class="form-group row">
         @Html.Label("Class Name", new { @class = "control-label col-md-3" })
@@ -70,15 +70,15 @@
            
         </div>
     </div> 
-
+</div>
    
 </div>
 
 <center><h1>Enrolled Students for this Course</h1></center>
 <p>
-    <as>
+    <cf>
         <button onclick="location.href='@Url.Action("addEnrollment", "Courses", new { uid = Model.ClassRecordID })';return false;">Enroll a Student</button>   
-    </as>
+    </cf>
 </p>
 
 @*Renders the partial view that shows currently enrolled classes for this student*@

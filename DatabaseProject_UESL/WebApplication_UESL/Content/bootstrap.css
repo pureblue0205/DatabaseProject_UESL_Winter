@@ -4393,7 +4393,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   .navbar-form .form-group {
     display: inline-block;
     margin-bottom: 0;
-    vertical-align: middle;
+    vertical-align: auto;
   }
   .navbar-form .form-control {
     display: inline-block;
