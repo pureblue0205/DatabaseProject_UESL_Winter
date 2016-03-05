@@ -62,7 +62,7 @@
           <Property Name="CourseCatalogNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="SEVIS" Type="nvarchar" MaxLength="50" />
           <Property Name="I-20 Expiration" Type="date" />
-          <Property Name="gender" Type="nchar" MaxLength="5" />
+          <Property Name="gender" Type="nchar" MaxLength="6" />
           <Property Name="DOB" Type="date" />
           <Property Name="Citezenship" Type="nvarchar" MaxLength="50" />
           <Property Name="School/Agent" Type="nvarchar" MaxLength="100" />
