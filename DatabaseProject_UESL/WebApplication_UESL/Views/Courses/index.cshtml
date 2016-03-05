@@ -176,17 +176,17 @@
                         )
                     )
 
-        <cf>
+        <pe>
             <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK course(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
             <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of course(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
             <ac>
                 <button onclick="location.href='@Url.Action("Create", "Courses")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Course</button>
             </ac>
-        </cf>
-        <cf>
+        </pe>
+        <pe>
             @Html.ActionLink("Show Export Bag", "coursesExport", "Courses",
             null, new { @class = "modal-link btn btn-success" })
-        </cf>
+        </pe>
     </div>
 }
 

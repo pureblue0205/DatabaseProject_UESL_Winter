@@ -186,17 +186,17 @@
                     )
                 )
 
-            <sf>
+            <pe>
                 <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK student(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
                 <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of student(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
                 <as>
                     <button onclick="location.href='@Url.Action("Create", "Students")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Student</button>
                 </as>
-            </sf>
-            <sf>
+            </pe>
+            <pe>
                 @Html.ActionLink("Show Export Bag", "studentExport", "students",
                 null, new { @class = "modal-link btn btn-success" })
-            </sf>
+            </pe>
         </div>
     }
 

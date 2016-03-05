@@ -206,15 +206,13 @@
                         )
                     )
 
-        <ef>
+        <pe>
             <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK record(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
             <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of record(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
-        </ef>
+        </pe>
         <pe>
-        <ef>
             @Html.ActionLink("Show Export Bag", "enrollmentsExport", "Enrollments",
             null, new { @class = "modal-link btn btn-success" })
-        </ef>
         </pe>
     </div>
 }

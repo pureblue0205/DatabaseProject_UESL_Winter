@@ -72,23 +72,11 @@ a:hover {
 }
 
 as{
-    margin: 26%;
+    float: right;
 }
 
 ac{
-    margin: 45.5%;
-}
-
-sf{
-    margin: 13.25%;
-}
-
-cf{
-    margin: 3.5%;
-}
-
-ef{
-    margin: 1.65%;
+    float: right;
 }
 
 h1 {
@@ -148,6 +136,7 @@ pe{
     padding-top: 15px;
     padding-right: 15px;
     padding-left: 15px;
+    display: block;
 }
 
 
