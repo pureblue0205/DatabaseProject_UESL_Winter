@@ -6,13 +6,16 @@
 
 <h0>Edit Student Info</h0>
 
+<p>
+    @Html.ActionLink("Student List", "Index")
+</p>
+
 @using (Html.BeginForm("Edit", "Students", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
-       
-        <hr />
+<div class="form-horizontal">       
+    <div class="jumbotron2">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.UniqueRecordID)
         
@@ -47,11 +50,15 @@
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="row">
-            <h4 class="col-md-offset-2">Biographical Info</h4>
-        </div>
+        <center>
+            <h4>Biographical Info</h4>
+        </center>
 
+<div class="form-horizontal">
+    <div class="jumbotron2">
         <div class="form-group">
             @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-3" })
             <div class="col-md-9">
@@ -123,11 +130,15 @@
                 @Html.ValidationMessageFor(model => model.Home_Address, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="row">
-            <h4 class="col-md-offset-2">Emergency Contact</h4>
-        </div>
+        <center>
+            <h4>Emergency Contact</h4>
+        </center>
 
+<div class="form-horizontal">
+    <div class="jumbotron2">
         <div class="form-group">
             @Html.Label("Emergency Contact", new { @class = "control-label col-md-3" })
             <div class="col-md-9">
@@ -159,11 +170,15 @@
                 @Html.ValidationMessageFor(model => model.Emergency_Contact_Email, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="row">
-            <h4 class="col-md-offset-2">Admissions</h4>
-        </div>
+        <center>
+            <h4>Admissions</h4>
+        </center>
 
+<div class="form-horizontal">   
+    <div class="jumbotron2">
         <div class="form-group">
             @Html.Label("Transfer?", new { @class = "control-label col-md-3" })
             <div class="col-md-9">
@@ -171,12 +186,6 @@
                 @Html.ValidationMessageFor(model => model.Transfer_, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
-
-
-
-
 
         <div class="form-group">
             @Html.Label("Conditional Admission?", new { @class = "control-label col-md-3" })
@@ -223,13 +232,16 @@
         <div class="col-md-9">
             @Html.EditorFor(model => model.CourseCatalogNumber, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.CourseCatalogNumber, "", new { @class = "text-danger" })
-        </div>
+        </div>*@
     </div>
-                    *@
-        <div class="row">
-            <h4 class="col-md-offset-2">Other</h4>
-        </div>
+</div>
 
+        <center>
+            <h4>Other</h4>
+        </center>
+
+<div class="form-horizontal">
+    <div class="jumbotron2">
         <div class="form-group">
             @Html.LabelFor(model => model.SEVIS, htmlAttributes: new { @class = "control-label col-md-3" })
             <div class="col-md-9">
@@ -244,11 +256,7 @@
                 @Html.EditorFor(model => model.I_20_Expiration, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.I_20_Expiration, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-       
-
- 
+        </div> 
 
         <div class="form-group">
             @Html.Label("School Agent", new { @class = "control-label col-md-3" })
@@ -265,8 +273,6 @@
                 @Html.ValidationMessageFor(model => model.Agent_Email, "", new { @class = "text-danger" })
             </div>
         </div>
-
-       
 
         <div class="form-group">
             @Html.Label("Mission Student ID", new { @class = "control-label col-md-3" })
@@ -298,11 +304,8 @@
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+}
 
 <hr />
 <footer>

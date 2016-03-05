@@ -57,12 +57,12 @@
     <Property Name="CourseCatalogNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="SEVIS" Type="nvarchar" MaxLength="50" />
     <Property Name="I-20 Expiration" Type="date" />
-    <Property Name="gender" Type="nchar" MaxLength="6" />
+    <Property Name="gender" Type="nchar" MaxLength="50" />
     <Property Name="DOB" Type="date" />
     <Property Name="Citezenship" Type="nvarchar" MaxLength="50" />
     <Property Name="School/Agent" Type="nvarchar" MaxLength="100" />
     <Property Name="Agent Email" Type="nvarchar" MaxLength="100" />
-    <Property Name="Transfer?" Type="nchar" MaxLength="5" />
+    <Property Name="Transfer?" Type="nchar" MaxLength="50" />
     <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" MaxLength="100" />
     <Property Name="CWU Email" Type="nvarchar" MaxLength="100" />
