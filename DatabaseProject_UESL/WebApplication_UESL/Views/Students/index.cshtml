@@ -105,65 +105,68 @@
         }
 </style>
 
-<center>
-    <h0>List of Students</h0>
-</center>
+<div class="jumbotron2">
+    <center>
+        <h0>List of Students</h0>
+    </center>
+</div>
 
-@using (Html.BeginForm(Model))
-{
-    <hr />
-    <hs>Search Students</hs>
-    <p>
-        <center>
-            <div class="row" style="padding:6px">
-                <div class="col-md-2" style="text-align:right">
-                    First Name:
-                </div>
-                <div class="col-md-2">
-                    @Html.TextBox("firstName")
-                </div>
-                <div class="col-md-2" style="text-align:right">
-                    Last Name:
-                </div>
-                <div class="col-md-2">
-                    @Html.TextBox("lastName")
-                </div>
-                <div class="col-md-2" style="text-align:right">
-                    School/Agent:
-                </div>
-                <div class="col-md-2">
-                    @Html.TextBox("agent")
-                </div>
-            </div>
-            <div class="row" style="padding:6px">
-                <div class="col-md-2" style="text-align:right">
-                    Student ID:
-                </div>
-                <div class="col-md-2">
-                    @Html.TextBox("sID")
-                </div>
-                <div class="col-md-2" style="text-align:right">
-                    Citezenship:
-                </div>
-                <div class="col-md-2">
-                    @Html.TextBox("Citezenship")
-                </div>
-                <div class="col-md-2" style="text-align:right">
-                     Eligibility Certificate Exp:
-                </div>
-                <div class="col-md-2">
-                    @Html.TextBox("I20exp", null, new { @type = "month" })
-                </div>
-            </div>
-        </center>
-        <input type="submit" value="Filter" />
-    </p>
-    <hr />
-}
+    @using (Html.BeginForm(Model))
+    {
+        <div class="jumbotron2">
+            <hs>Search Students</hs>
+            <p>
+                <center>
+                    <div class="row" style="padding:6px">
+                        <div class="col-md-2" style="text-align:right">
+                            First Name:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("firstName")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            Last Name:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("lastName")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            School/Agent:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("agent")
+                        </div>
+                    </div>
+                    <div class="row" style="padding:6px">
+                        <div class="col-md-2" style="text-align:right">
+                            Student ID:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("sID")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            Citezenship:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("Citezenship")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            Eligibility Certificate Exp:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("I20exp", null, new { @type = "month" })
+                        </div>
+                    </div>
+                </center>
+                <input type="submit" value="Filter" />
+            </p>
+        </div>
+    }
 
-@using (Html.BeginForm("DeleteSelected", "Students"))
-{
-    @grid.GetHtml(
+    @using (Html.BeginForm("DeleteSelected", "Students"))
+    {
+        <div class="jumbotron2">
+            @grid.GetHtml(
                 tableStyle: "gridtable",
                 htmlAttributes: new { id = "checkableGrid" },
                 columns:
@@ -183,32 +186,32 @@
                     )
                 )
 
-    <sf>
-        <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK student(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
-        <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of student(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
-        <as>
-            <button onclick="location.href='@Url.Action("Create", "Students")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Student</button>
-        </as>
-    </sf>
-}
+            <sf>
+                <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK student(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
+                <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of student(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
+                <as>
+                    <button onclick="location.href='@Url.Action("Create", "Students")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Student</button>
+                </as>
+            </sf>
+            <sf>
+                @Html.ActionLink("Show Export Bag", "studentExport", "students",
+                null, new { @class = "modal-link btn btn-success" })
+            </sf>
+        </div>
+    }
 
-<sf>
-    @Html.ActionLink("Show Export Bag", "studentExport", "students",
-    null, new { @class = "modal-link btn btn-success" })
-</sf> 
+    <div id="modal-container" class="modal fade"
+         tabindex="-1" role="dialog">
 
-<div id="modal-container" class="modal fade"
-     tabindex="-1" role="dialog">
-    
-</div>
-
-<hr />
-<footer>
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("Students", "index", "Students")</li>
-            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
-            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
-        </ul>
     </div>
-</footer>
+
+    <hr />
+    <footer>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Students", "index", "Students")</li>
+                <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+                <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+            </ul>
+        </div>
+    </footer>

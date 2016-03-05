@@ -72,19 +72,19 @@ a:hover {
 }
 
 as{
-    margin: 25%;
+    margin: 26%;
 }
 
 ac{
-    margin: 43.5%;
+    margin: 45.5%;
 }
 
 sf{
-    margin: 15%;
+    margin: 13.25%;
 }
 
 cf{
-    margin: 5.9%;
+    margin: 3.5%;
 }
 
 ef{
@@ -142,6 +142,12 @@ p0{
     padding-right: 15px;
     padding-left: 15px;
     color: white;
+}
+
+pe{
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 
@@ -5013,6 +5019,40 @@ a.list-group-item.active > .badge,
 
 .nav-pills > li > a > .badge {
   margin-left: 3px;
+}
+
+.jumbotron2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  background-color: rgba(000, 0, 0, 0.15);
+}
+
+.jumbotron2 h1 {
+  line-height: 1;
+}
+
+.jumbotron2 p {
+  line-height: 1.4;
+}
+
+.container .jumbotron2 {
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron2 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .container .jumbotron2 {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .jumbotron2 h1 {
+    font-size: 63px;
+  }
 }
 
 .jumbotron {
