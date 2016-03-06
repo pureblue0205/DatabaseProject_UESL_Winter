@@ -74,10 +74,17 @@
         }
 </style>
 
+<h0>Enroll Student</h0>
+
+<p>
+    @Html.ActionLink("Course List", "Index")
+</p>
+
 @using (Html.BeginForm(Model))
 {
+<div class="jumbotron2">
+    <hs>Search Students</hs>
     <p>
-        <h0>Search</h0>
         <div class="row" style="padding:6px">
             <div class="col-md-2" style="text-align:right">
                 First Name:
@@ -117,40 +124,59 @@
         </div>
 
         @Html.Hidden("classRecID", ViewData["classRecID"])
-        
-
-        <input type="submit" value="Filter" />
     </p>
-    <p>This section is only for ADDING students to courses! If you need to remove students from a course, go back to the course details page and use the delete button.</p>
+    <p0>
+        <fl>
+            <input type="submit" value="Filter Students" />
+        </fl>
+    </p0> 
+</div>
 }
+
 @using (Html.BeginForm("registerSelected", "Courses"))
-
-
 {
-    @Html.Hidden("classRecID", ViewData["classRecID"])
+    <div class="jumbotron2">
+        <center>
+            @Html.Hidden("classRecID", ViewData["classRecID"])
 
 
-    @grid.GetHtml(
+            @grid.GetHtml(
                 tableStyle: "gridtable",
                  htmlAttributes: new { id = "checkableGrid" },
                 columns:
                     grid.Columns(
 
-                       @*Add Checkbox*@
-                        grid.Column(format:@<text><input type="checkbox" name="ids" value="@item.UniqueRecordID" /></text>, header: "{checkall}"),                        
+                        @*Add Checkbox*@
+                        grid.Column(format:@<text><input type="checkbox" name="ids" value="@item.UniqueRecordID" /></text>, header: "{checkall}"),
                         grid.Column("StudentID", "Student ID"),
                         grid.Column("FirstName", "First Name"),
                         grid.Column("LastName", "Last Name"),
                         grid.Column("Citezenship", "Citezenship"),
                         grid.Column("School_Agent", "School / Agent")
-                       
+
 
 
 
 
                     )
                 )
-
-    <input type="submit" value="Enroll selected students in this course" />
+            <p>
+                <input type="submit" value="Enroll Selected Students in Course" />
+            </p>
+        </center>
+        <hr />
+            <p>Note: This section is only for adding students to courses. Use the delete button on the course details page to remove a student from a course's records.</p>
+        </div>
 }
+
+<hr />
+<footer>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Students", "index", "Students")</li>
+            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+        </ul>
+    </div>
+</footer>
 
