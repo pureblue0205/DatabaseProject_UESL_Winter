@@ -1,54 +1,55 @@
-﻿
-
-@model IEnumerable<WebApplication_UESL.Models.Student>
+﻿@model IEnumerable<WebApplication_UESL.Models.Student>
 
 @{
     ViewBag.Title = "index";
     var grid = new WebGrid(source: Model, rowsPerPage: 1000);
 }
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <script>
-                    $(document).ready(function () {
+    $(document).ready(function () {
 
-                        // 1st replace first column header text with checkbox
+        // 1st replace first column header text with checkbox
 
-                        $("#checkableGrid th").each(function () {
-                            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
-                                $(this).text('');
-                                $("<input/>", { type: "checkbox", id: "cbSelectAll", value: "" }).appendTo($(this));
-                                $(this).append("<span>Select All</span>");
-                            }
-                        });
+        $("#checkableGrid th").each(function () {
+            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
+                $(this).text('');
+                $("<input/>", { type: "checkbox", id: "cbSelectAll", value: "" }).appendTo($(this));
+                $(this).append("<span>Select All</span>");
+            }
+        });
 
-                        //2nd click event for header checkbox for select /deselect all
-                        $("#cbSelectAll").click(function () {
-                            var ischecked = this.checked;
-                            $('#checkableGrid').find("input:checkbox").each(function () {
-                                this.checked = ischecked;
-                            });
-                        });
+        //2nd click event for header checkbox for select /deselect all
+        $("#cbSelectAll").click(function () {
+            var ischecked = this.checked;
+            $('#checkableGrid').find("input:checkbox").each(function () {
+                this.checked = ischecked;
+            });
+        });
 
 
-                        //3rd click event for checkbox of each row
-                        $("input[name='ids']").click(function () {
-                            var totalRows = $("#checkableGrid td :checkbox").length;
-                            var checked = $("#checkableGrid td :checkbox:checked").length;
+        //3rd click event for checkbox of each row
+        $("input[name='ids']").click(function () {
+            var totalRows = $("#checkableGrid td :checkbox").length;
+            var checked = $("#checkableGrid td :checkbox:checked").length;
 
-                            if (checked == totalRows) {
-                                $("#checkableGrid").find("input:checkbox").each(function () {
-                                    this.checked = true;
-                                });
-                            }
-                            else {
-                                $("#cbSelectAll").removeAttr("checked");
-                            }
-                        });
+            if (checked == totalRows) {
+                $("#checkableGrid").find("input:checkbox").each(function () {
+                    this.checked = true;
+                });
+            }
+            else {
+                $("#cbSelectAll").removeAttr("checked");
+            }
+        });
 
-                    });
+    });
 </script>
+
 <script>
     $(function () {
         
@@ -74,101 +75,102 @@
     });
 </script>
 
-
-
-
 @* css *@
 <style type="text/css">
     table.gridtable {
+        background-color: rgba(255, 234, 153, 0.60);
         font-family: verdana,arial,sans-serif;
-        font-size: 11px;
+        font-size: 13px;
         color: #333333;
         border-width: 1px;
         border-color: #666666;
         border-collapse: collapse;
+        margin: 0px auto;
     }
 
         table.gridtable th {
+            background-color: rgba(255, 234, 153, 0.60);
             border-width: 1px;
             padding: 8px;
             border-style: solid;
             border-color: #666666;
-            background-color: #dedede;
         }
 
         table.gridtable td {
+            background-color: rgba(255, 234, 153, 0.60);
             border-width: 1px;
             padding: 8px;
             border-style: solid;
             border-color: #666666;
-            background-color: #ffffff;
         }
 </style>
 
+<div class="jumbotron2">
+    <center>
+        <h0>List of Students</h0>
+    </center>
+</div>
 
-
-
-<h2>Students List</h2>
-
-<p>
-   @*@ @Html.ActionLink("Create New", "Create") *@
-    <button onclick="location.href='@Url.Action("Create", "Students")';return false;">Add a new student</button>
-</p>
-
-@using (Html.BeginForm(Model))
-{
-    <p>
-        <h2>Search</h2>
-        <div class="row" style="padding:6px">
-            <div class="col-md-2" style="text-align:right">
-                First Name:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("firstName")
-            </div>
-            <div class="col-md-2" style="text-align:right">
-                Last Name:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("lastName")
-            </div>
+    @using (Html.BeginForm(Model))
+    {
+        <div class="jumbotron2">
+            <hs>Search Students</hs>
+            <p>
+                <center>
+                    <div class="row" style="padding:6px">
+                        <div class="col-md-2" style="text-align:right">
+                            First Name:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("firstName")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            Last Name:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("lastName")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            School/Agent:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("agent")
+                        </div>
+                    </div>
+                    <div class="row" style="padding:6px">
+                        <div class="col-md-2" style="text-align:right">
+                            Student ID:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("sID")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            Citezenship:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("Citezenship")
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                            Eligibility Expiration:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBox("I20exp", null, new { @type = "month" })
+                        </div>
+                    </div>
+                </center>
+            </p>
+            <p0>
+                <fl>
+                    <input type="submit" value="Filter Students" />
+                </fl>
+            </p0>
         </div>
-        <div class="row" style="padding:6px">
-            <div class="col-md-2" style="text-align:right">
-                Student ID:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("sID")
-            </div>
-            <div class="col-md-2" style="text-align:right">
-                Citezenship:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("Citezenship") 
-            </div>
-        </div>
-        <div class="row" style="padding:6px">
-            <div class="col-md-2" style="text-align:right">
-                School/Agent:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("agent") 
-            </div>
-            <div class="col-md-2" style="text-align:right">
-                I 20 Expiration:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("I20exp",null, new { @type = "month" }) 
-            </div>
-        </div>
-       
-        <input type="submit" value="Filter" />
-    </p>
-}
+    }
 
-@using (Html.BeginForm("DeleteSelected", "Students"))
-{
-    @grid.GetHtml(
+    @using (Html.BeginForm("DeleteSelected", "Students"))
+    {
+        <div class="jumbotron2">
+            @grid.GetHtml(
                 tableStyle: "gridtable",
                 htmlAttributes: new { id = "checkableGrid" },
                 columns:
@@ -188,16 +190,32 @@
                     )
                 )
 
-    <button type="submit" value="del" name="submitButton" onclick="return confirm('Are you SURE you want to delete these students?')" >Delete Selected</button>
-    <button type="submit" value="ex" name="submitButton"  onclick="return confirm('Confirm mark for export?')">Mark Selected For Export</button>
-}
- 
+            <pe>
+                <button type="submit" value="ex" name="submitButton" onclick="return confirm('Confirm MARK student(s) for EXPORT?')"><img width="40" height="40" src="/Content/images/exportFile.png"> Mark Selected for Export</button>
+                <button type="submit" value="del" name="submitButton" onclick="return confirm('Confirm DELETION of student(s)?')"><img width="40" height="40" src="/Content/images/deleteFile.ico"> Delete Selected</button>
+                <as>
+                    <button onclick="location.href='@Url.Action("Create", "Students")';return false;"><img width="40" height="40" src="/Content/images/addFile.ico" alt=""> Add Student</button>
+                </as>
+            </pe>
+            <pe>
+                @Html.ActionLink("Show Export Bag", "studentExport", "students",
+                null, new { @class = "modal-link btn btn-success" })
+            </pe>
+        </div>
+    }
 
-</p>
-@Html.ActionLink("Show Export Bag", "studentExport", "students",
-null, new { @class = "modal-link btn btn-success" })
+    <div id="modal-container" class="modal fade"
+         tabindex="-1" role="dialog">
 
-<div id="modal-container" class="modal fade"
-     tabindex="-1" role="dialog">
-    
-</div>
+    </div>
+
+    <hr />
+    <footer>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Students", "index", "Students")</li>
+                <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+                <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+            </ul>
+        </div>
+    </footer>

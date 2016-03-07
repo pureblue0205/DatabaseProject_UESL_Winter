@@ -4,16 +4,16 @@
     ViewBag.Title = "details";
 }
 
-<h2>Course details</h2>
+<h0>Course details</h0>
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClassRecordID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Course List", "Index")
 </p>
 
 <div>
     
-    <hr />
+    <div class="jumbotron2">
    
     <div class="form-group row">
         @Html.Label("Class Name", new { @class = "control-label col-md-3" })
@@ -70,19 +70,16 @@
            
         </div>
     </div> 
-
+</div>
    
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClassRecordID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
 
-<center><h2>Enrolled students for this course</h2></center>
+<center><h1>Enrolled Students for this Course</h1></center>
 <p>
-  <button onclick="location.href='@Url.Action("addEnrollment", "Courses", new { uid = Model.ClassRecordID })';return false;">Add a new student</button>   
+    <cf>
+        <button onclick="location.href='@Url.Action("addEnrollment", "Courses", new { uid = Model.ClassRecordID })';return false;">Enroll a Student</button>   
+    </cf>
 </p>
-
 
 @*Renders the partial view that shows currently enrolled classes for this student*@
-@{Html.RenderAction("enrolledStudents", "Courses");}
+<center>@{Html.RenderAction("enrolledStudents", "Courses");}</center>

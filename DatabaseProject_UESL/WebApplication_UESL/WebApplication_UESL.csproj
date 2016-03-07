@@ -234,7 +234,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="images\no-thumb.png" />
     <Content Include="Models\Model_UESL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model_UESL.edmx</DependentUpon>
@@ -323,10 +322,12 @@
     <Content Include="Views\Students\enrolledCourses.cshtml" />
     <Content Include="Views\Courses\enrolledStudents.cshtml" />
     <Content Include="Views\Courses\addEnrollment.cshtml" />
-    <Content Include="Views\Home\UsageGuide.cshtml" />
     <Content Include="Views\Students\studentExport.cshtml" />
     <Content Include="Views\Courses\coursesExport.cshtml" />
     <Content Include="Views\Enrollments\enrollmentsExport.cshtml" />
+    <Content Include="Views\Home\UsageGuide.cshtml" />
+    <Content Include="Views\Shared\_UsageGuideLayout.cshtml" />
+    <Content Include="Views\Shared\_AboutLayout.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

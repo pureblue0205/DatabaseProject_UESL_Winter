@@ -58,7 +58,7 @@ html {
 }
 
 body {
-  background-image: url(images/basicSoftWorld.jpg);
+  background-image: url(images/trees.png);
   margin: 0;
 }
 
@@ -71,9 +71,98 @@ a:hover {
   outline: 0;
 }
 
+as{
+    float: right;
+}
+
+ac{
+    float: right;
+}
+
+fl{
+    float: left;
+}
+
 h1 {
-  margin: 0.67em 0;
+  background-color: rgba(248, 9, 9, 0.50);
+  color: white;
   font-size: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+h4 {
+  background-color: rgba(0, 148, 21, 0.35);
+  color: white;
+  font-size: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+h0 {
+  background-color: rgba(10, 65, 219, 0.35);
+  color: white;
+  font-size: 4em;
+  text-indent: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+hs {
+  background-color: rgba(0, 148, 21, 0.35);
+  color: white;
+  font-size: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+p {
+    text-indent: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+p0{
+    text-indent: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    color: white;
+}
+
+pe{
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: block;
+}
+
+
+#usageGuide {
+  background-color: lavenderblush;
+  min-width: 496px;
+  min-height: 315px;
+}
+
+#about {
+  background-image: url(images/greenAnimalVectors.jpg);
+  min-width: 605px;
+  min-height: 496px;
+}
+
+#students{
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  background-color: rgba(000, 0, 0, 0.75);
 }
 
 abbr[title] {
@@ -503,14 +592,12 @@ h3 {
   margin-bottom: 10px;
 }
 
-h4,
 h5,
 h6 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-h1,
 .h1 {
   font-size: 36px;
 }
@@ -525,7 +612,6 @@ h3,
   font-size: 24px;
 }
 
-h4,
 .h4 {
   font-size: 18px;
 }
@@ -4311,7 +4397,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   .navbar-form .form-group {
     display: inline-block;
     margin-bottom: 0;
-    vertical-align: middle;
+    vertical-align: auto;
   }
   .navbar-form .form-control {
     display: inline-block;
@@ -4928,19 +5014,51 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 
+.jumbotron2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  background-color: rgba(000, 0, 0, 0.15);
+}
+
+.jumbotron2 h1 {
+  line-height: 1;
+}
+
+.jumbotron2 p {
+  line-height: 1.4;
+}
+
+.container .jumbotron2 {
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron2 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .container .jumbotron2 {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .jumbotron2 h1 {
+    font-size: 63px;
+  }
+}
+
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
-  color: inherit;
-  background-color: #eeeeee;
+  background-color: rgba(000, 0, 0, 0.15);
 }
 
 .jumbotron h1 {
   line-height: 1;
-  color: inherit;
 }
 
 .jumbotron p {

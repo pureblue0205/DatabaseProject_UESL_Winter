@@ -6,43 +6,43 @@
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
-                    $(document).ready(function () {
+    $(document).ready(function () {
 
-                        // 1st replace first column header text with checkbox
+        // 1st replace first column header text with checkbox
 
-                        $("#checkableGrid th").each(function () {
-                            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
-                                $(this).text('');
-                                $("<input/>", { type: "checkbox", id: "cbSelectAll", value: "" }).appendTo($(this));
-                                $(this).append("<span>Select All</span>");
-                            }
-                        });
+        $("#checkableGrid th").each(function () {
+            if ($.trim($(this).text().toString().toLowerCase()) === "{checkall}") {
+                $(this).text('');
+                $("<input/>", { type: "checkbox", id: "cbSelectAll", value: "" }).appendTo($(this));
+                $(this).append("<span>Select All</span>");
+            }
+        });
 
-                        //2nd click event for header checkbox for select /deselect all
-                        $("#cbSelectAll").click(function () {
-                            var ischecked = this.checked;
-                            $('#checkableGrid').find("input:checkbox").each(function () {
-                                this.checked = ischecked;
-                            });
-                        });
+        //2nd click event for header checkbox for select /deselect all
+        $("#cbSelectAll").click(function () {
+            var ischecked = this.checked;
+            $('#checkableGrid').find("input:checkbox").each(function () {
+                this.checked = ischecked;
+            });
+        });
 
 
-                        //3rd click event for checkbox of each row
-                        $("input[name='ids']").click(function () {
-                            var totalRows = $("#checkableGrid td :checkbox").length;
-                            var checked = $("#checkableGrid td :checkbox:checked").length;
+        //3rd click event for checkbox of each row
+        $("input[name='ids']").click(function () {
+            var totalRows = $("#checkableGrid td :checkbox").length;
+            var checked = $("#checkableGrid td :checkbox:checked").length;
 
-                            if (checked == totalRows) {
-                                $("#checkableGrid").find("input:checkbox").each(function () {
-                                    this.checked = true;
-                                });
-                            }
-                            else {
-                                $("#cbSelectAll").removeAttr("checked");
-                            }
-                        });
+            if (checked == totalRows) {
+                $("#checkableGrid").find("input:checkbox").each(function () {
+                    this.checked = true;
+                });
+            }
+            else {
+                $("#cbSelectAll").removeAttr("checked");
+            }
+        });
 
-                    });
+    });
 </script>
 
 @* css *@
@@ -73,56 +73,66 @@
         }
 </style>
 
+<h0>Enroll Student</h0>
+
+<p>
+    @Html.ActionLink("Student List", "Index")
+</p>
+
 @using (Html.BeginForm(Model))
 {
-    <p>
-        <h2>Search</h2>
-        <div class="row" style="padding:6px">
-            <div class="col-md-2" style="text-align:right">
-                Class Name:
+    <div class="jumbotron2">
+        <hs>Search Courses</hs>
+        <p>
+            <div class="row" style="padding:6px">
+                <div class="col-md-2" style="text-align:right">
+                    Class Name:
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBox("ClassName")
+                </div>
+                <div class="col-md-2" style="text-align:right">
+                    Class ID:
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBox("classID")
+                </div>
             </div>
-            <div class="col-md-2">
-                @Html.TextBox("ClassName")
-            </div>
-            <div class="col-md-2" style="text-align:right">
-                classID:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("classID")
-            </div>
-        </div>
 
-        <div class="row" style="padding:6px">
-            <div class="col-md-2" style="text-align:right">
-                Instructor:
+            <div class="row" style="padding:6px">
+                <div class="col-md-2" style="text-align:right">
+                    Instructor:
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBox("Instructor")
+                </div>
+                <div class="col-md-2" style="text-align:right">
+                    Quarter:
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBox("quarter")
+                </div>
             </div>
-            <div class="col-md-2">
-                @Html.TextBox("Instructor")
-            </div>
-            <div class="col-md-2" style="text-align:right">
-                Quarter:
-            </div>
-            <div class="col-md-2">
-                @Html.TextBox("quarter")
-            </div>
-        </div>
-        @Html.Hidden("studentRecordID", ViewData["studentRecordID"])
-        @Html.Hidden("stID", ViewData["stID"])
-
-        <input type="submit" value="Filter" />
-    </p>
-    <p>This section is only for ADDING courses to students! If you need to remove a course from this student, go back to the student details page and use the delete button.</p>
+            @Html.Hidden("studentRecordID", ViewData["studentRecordID"])
+            @Html.Hidden("stID", ViewData["stID"])
+        </p>
+        <p0>
+            <fl>
+                <input type="submit" value="Filter Courses" />
+            </fl>
+        </p0>
+    </div>
 }
 
 @using (Html.BeginForm("registerSelected", "Students"))
+{
+    <div class="jumbotron2">
+        <center>
+            @Html.Hidden("studentRecordID", ViewData["studentRecordID"])
+            @Html.Hidden("stID", ViewData["stID"])
 
 
-{   
-    @Html.Hidden("studentRecordID", ViewData["studentRecordID"])
-    @Html.Hidden("stID", ViewData["stID"])
-
-
-    @grid.GetHtml(
+            @grid.GetHtml(
                 tableStyle: "gridtable",
                  htmlAttributes: new { id = "checkableGrid" },
                 columns:
@@ -143,6 +153,22 @@
 
                     )
                 )
-
-    <input type="submit" value="Enroll Student In Selected Courses" />
+            <p>
+                <input type="submit" value="Enroll Student In Selected Courses" />
+            </p>
+        </center>
+        <hr />
+            <p>Note: This section is only for adding courses to students. Use the delete button on the student details page to remove a course from a student's record.</p>
+    </div>
 }
+
+<hr />
+<footer>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Students", "index", "Students")</li>
+            <li>@Html.ActionLink("Courses", "index", "Courses")</li>
+            <li>@Html.ActionLink("Enrollments", "index", "Enrollments")</li>
+        </ul>
+    </div>
+</footer>

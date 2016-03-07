@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <center>
+        <h1>About the Program</h1>
+    </center>
+    <div id="about">
+        <p>
+            The University English as a Second Language (UESL) program acts as an
+
+            intermediary between Central Washington University (CWU) international
+
+            students and the registrar. The department is tasked with gathering student
+
+            information; such as place of origin, visa records and class enrollment
+
+            information. For example, once a student has chosen their courses, then a
+
+            course plan is sent from UESL to the registrar; this then allows the student to
+
+            enroll in classes for the quarter.
+        </p>
+
+        <p>
+            As of now, the UESL department keeps all of their student’s information in
+
+            multiple Microsoft Excel spread sheets (see appendix, problem example). They
+
+            then print out the class information on a separate sheet and give a physical copy
+
+            to the registrar. To simplify this processes, using Microsoft SQL Server Express
+
+            and the C# programming language, we have developed a portable database that
+
+            easily exports to Excel. The interface is available as a user friendly web-
+
+            application, developed using model view controller (MVC) and the ASP.NET
+
+            framework. This allows the UESL department to query their database of
+
+            students based on a variety of search parameters, including; student name,
+
+            CWU ID number, class, or professor.
+        </p>
+
+        <p>
+            To meet the needs of the UESL department, we have developed a dynamic
+
+            program utilizing C#, Microsoft SQL Server Express, and the Microsoft .NET
+
+            framework. We have utilized the C# programing language to develop the database
+
+            and functions for exporting Microsoft Excel files of stored student and course
+
+            data. The use of Microsoft’s SQL Server Express, a free program, improves
+
+            the portability of the database. This makes it perfect for developing a compact
+
+            program that employs important database functions while increasing ease of
+
+            use. Finally, access of the data stored in the database will be achieved
+
+            through the use of a model view controller (MVC) web-application and Microsoft’s
+
+            Entity Framework.
+        </p>
+        @RenderBody()
+    </div>
+</body>
